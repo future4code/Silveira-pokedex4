@@ -23,11 +23,20 @@ justify-content: space-around;
 
 const DetailContainer = styled.div`
 display: flex;
-flex-direction: column;
-align-items: center;
-background-color: blue;
 color: white;
+height: auto;
+padding: 5px;
+background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+flex-wrap:wrap;
+gap: 20px;
+justify-content: center;
+img{
+max-width: 80px;
+max-height: 80px;
+}
 `
+
+
 const FooterContainer = styled.div`
   background-color: #0e141b;
   display: flex;
@@ -76,14 +85,14 @@ export default function DetailsPage() {
   const listPokemons = detail && detail.map((pokemon) => {
     return (
       <div key={pokemon.id} pokemon={pokemon}>
+          <b>{pokemon.name.toUpperCase()}</b>
         <img src={pokemon.sprites.other.dream_world.front_default} />
-        <div>Nome: {pokemon.name}</div>
         <div>Habilidades: {pokemon.abilities.map((habilidade) => {
           return (
             <p>{habilidade.ability.name}</p>
           )
-        })}</div>
-        <div>
+        })}
+        
           <p>Estatística:</p>
           {pokemon.stats.map((estatisticas) => {
             return (
@@ -103,7 +112,6 @@ export default function DetailsPage() {
         <button onClick={() => goToHomePage(navigate)}>Home</button>
       </SubHeader>
       <DetailContainer>
-        <h2>DetailContainer</h2>
         {listPokemons}
       </DetailContainer>
       <FooterContainer>

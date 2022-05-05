@@ -29,7 +29,6 @@ const CardContainer = styled.div`
 display: flex;
 color:white;
 list-style-type:none;
-width: 100%;
 height: auto;
 padding: 5px;
 background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
@@ -40,14 +39,15 @@ justify-content: center;
 `
 const Cardzinhos = styled.div`
 display: flex;
-width: 300px;
+width: 400px;
 height: 300px;
 flex-direction: column;
 align-items: center;
 border: 5px double aqua ;
 padding: 15px;
 img{
-width: 100px;
+max-width: 100px;
+max-height: 80px;
 }
 `
 const Botoes = styled.div`
@@ -127,7 +127,7 @@ export default function HomePage() {
 
       <Cardzinhos key={pokemon.id} pokemon={pokemon}>
         <img src={pokemon.sprites.other.dream_world.front_default} />
-        <p>{pokemon.name.toUpperCase()}</p>
+        <b>{pokemon.name.toUpperCase()}</b>
         <Botoes>
           <Icone1>
             <button><img src={Icone} /></button>
